@@ -14,44 +14,42 @@ npm or yarn
 Getting Started
 Clone the Repository: Start by cloning this repository to your local machine.
 
-bash
+````bash
 git clone https://github.com/krishnapriyama/MERN-project-Auth.git
 Frontend Setup: Navigate to the project's frontend directory:
 
-bash
+```bash
 cd frontEnd
 Install Dependencies: Install the required dependencies for the frontend:
 
-bash
+```bash
 npm install
 # or
 yarn install
 Start Development Server: Launch the frontend development server:
 
-bash
+```bash
 npm run dev
 # or
 yarn dev
 Access the App: Open your preferred web browser and navigate to http://localhost:3000 to experience the application.
 
-Backend Setup
+## Backend Setup
 Navigate to Backend Directory: Move to the backend directory of the cloned repository:
 
-bash
+```bash
 cd backend
 Install Backend Dependencies: Install the necessary backend dependencies:
 
-bash
-
+```bash
 npm install
 # or
 yarn install
 Configure Database Settings: Configure your MongoDB Atlas database settings in backend/config/database.js.
 
-Start Backend Server: Initiate the backend server:
+## Start Backend Server: Initiate the backend server:
 
-bash
-
+```bash
 npm start
 # or
 yarn start
