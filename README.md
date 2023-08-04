@@ -50,7 +50,7 @@ yarn install
 ```
 Configure Database Settings: Configure your MongoDB Atlas database settings in backend/config/database.js.
 
-## Start Backend Server: Initiate the backend server:
+Start Backend Server: Initiate the backend server:
 
 ```bash
 npm start
