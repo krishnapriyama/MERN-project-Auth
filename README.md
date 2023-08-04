@@ -16,12 +16,12 @@ Clone the Repository: Start by cloning this repository to your local machine.
 
 ````bash
 git clone https://github.com/krishnapriyama/MERN-project-Auth.git
-Frontend Setup: Navigate to the project's frontend directory:
 ````
+Frontend Setup: Navigate to the project's frontend directory:
 ```bash
 cd frontEnd
-Install Dependencies: Install the required dependencies for the frontend:
 ````
+Install Dependencies: Install the required dependencies for the frontend:
 ```bash
 npm install
 # or
@@ -41,8 +41,8 @@ Navigate to Backend Directory: Move to the backend directory of the cloned repos
 
 ```bash
 cd backend
-Install Backend Dependencies: Install the necessary backend dependencies:
 ```
+Install Backend Dependencies: Install the necessary backend dependencies:
 ```bash
 npm install
 # or
