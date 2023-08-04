@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-import jwtDecode from "jwt-decode";
 import backImg from "../assets/backImg.jpeg";
 import logo from "../assets/logo.png";
 
@@ -39,16 +38,6 @@ const Login = () => {
           localStorage.setItem("userToken", response.data.token);
           const fullName = response.data.fullName;
           navigate("/profile", { state: { fullName } });
-
-          const decodedToken = jwtDecode(response.data.token);
-          const expirationTime = decodedToken.exp * 1000; 
-          const currentTime = Date.now();
-
-          const timeUntilExpiration = expirationTime - currentTime;
-
-          setTimeout(() => {
-            localStorage.removeItem("userToken");
-          }, timeUntilExpiration);
         } else if (
           response &&
           response.data &&

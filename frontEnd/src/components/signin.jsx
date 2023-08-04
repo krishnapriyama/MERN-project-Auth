@@ -136,9 +136,9 @@ const Signin = () => {
   });
 
   return (
-    <div className="bg-white h-screen flex flex-col md:flex-row overflow-hidden">
+    <div className="bg-white w-full h-screen flex flex-col md:flex-row justify-center item-center">
       {/* Left Column */}
-      <div className="w-full md:w-[40%] hidden md:block p-5 pr-0">
+      <div className="w-full h-full md:w-[40%] hidden md:block p-5 pr-0">
         <img
           src={backImg}
           alt="backImg"
@@ -150,211 +150,217 @@ const Signin = () => {
       </div>
 
       {/* Right Column */}
-      <div className="w-full md:w-[60%] md:justify-normal justify-center flex items-center mr-7">
-        <form action="" onSubmit={formik.handleSubmit}>
-          <div className="m-4 md:m-10 w-full p-10 md:p-8">
-            <h1 className="text-[#06070a] text-2xl md:text-xl mb-2 lg:mb-4 flex flex-col">
-              Welcome{" "}
-              <span className="text-[#131926] text-4xl font-bold">Sign up</span>
-            </h1>
+      <div className="w-full md:w-[60%] item-center flex md:mr-7 h-full p-5 justify-center">
+        <div className="m-4 md:m-2 w-full p-10 md:p-8">
+          <h1 className="text-[#06070a] text-2xl md:text-xl mb-2 lg:mb-4 flex flex-col">
+            Welcome{" "}
+            <span className="text-[#131926] text-4xl font-bold">Sign up</span>
+          </h1>
 
-            <div className="flex gap-9 w-full text-[#4D5E80] mt-10">
-              <div className="flex flex-col w-1/2">
-                <label>Full name</label>
-                <input
-                  {...formik.getFieldProps("fullname")}
-                  name="fullname"
-                  type="text"
-                  placeholder="John Doe"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.fullname ? (
-                  <div className="text-red-500">{formik.errors.fullname}</div>
-                ) : null}
+          <form action="" onSubmit={formik.handleSubmit}>
+            <div className="w-full flex-col justify-center items-center h-full">
+              <div className="flex flex-col md:flex-row md:gap-9 gap-3 w-full justify-center items-center text-[#4D5E80] mt-5">
+                <div className="flex flex-col w-full md:w-1/2">
+                  <label>Full name</label>
+                  <input
+                    {...formik.getFieldProps("fullname")}
+                    name="fullname"
+                    type="text"
+                    placeholder="John Doe"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.fullname && formik.touched.fullname ? (
+                    <div className="text-red-500">{formik.errors.fullname}</div>
+                  ) : null}
+                </div>
+                <div className="flex flex-col w-full md:w-1/2 ">
+                  <label>Email</label>
+                  <input
+                    {...formik.getFieldProps("email")}
+                    name="email"
+                    type="email"
+                    placeholder="allthebest@neokred.com"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.email && formik.touched.email ? (
+                    <div className="text-red-500">{formik.errors.email}</div>
+                  ) : null}
+                </div>
               </div>
-              <div className="flex flex-col w-1/2">
-                <label>Email</label>
-                <input
-                  {...formik.getFieldProps("email")}
-                  name="email"
-                  type="email"
-                  placeholder="allthebest@neokred.com"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.email ? (
-                  <div className="text-red-500">{formik.errors.email}</div>
-                ) : null}
+
+              <div className="flex flex-col md:flex-row md:gap-9 gap-3 w-full justify-center items-center text-[#4D5E80] mt-5">
+                <div className="flex flex-col w-full md:w-1/2">
+                  <label>Date of birth</label>
+                  <input
+                    {...formik.getFieldProps("dob")}
+                    name="dob"
+                    type="date"
+                    placeholder="12/12/12"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.dob && formik.touched.dob ? (
+                    <div className="text-red-500">{formik.errors.dob}</div>
+                  ) : null}
+                </div>
+                <div className="flex flex-col w-full md:w-1/2">
+                  <label>Password</label>
+                  <input
+                    {...formik.getFieldProps("password")}
+                    name="password"
+                    type="password"
+                    placeholder="**********"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.password && formik.touched.password ? (
+                    <div className="text-red-500">{formik.errors.password}</div>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:gap-9 gap-3 w-full justify-center items-center text-[#4D5E80] mt-5">
+                <div className="flex flex-col w-full md:w-1/2">
+                  <label>Phone Number</label>
+                  <input
+                    {...formik.getFieldProps("phone")}
+                    name="phone"
+                    type="text"
+                    placeholder="+91-9876543210"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.phone && formik.touched.phone ? (
+                    <div className="text-red-500">{formik.errors.phone}</div>
+                  ) : null}
+                </div>
+                <div className="flex flex-col w-full md:w-1/2">
+                  <label>Confirm Password</label>
+                  <input
+                    {...formik.getFieldProps("confirmpassword")}
+                    name="confirmpassword"
+                    type="password"
+                    placeholder="**********"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.confirmpassword &&
+                  formik.touched.confirmpassword ? (
+                    <div className="text-red-500">
+                      {formik.errors.confirmpassword}
+                    </div>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="flex flex-col  gap-3 w-full text-[#4D5E80] mt-5">
+                <h1 className="text-[#26334D] text-lg font-semibold">
+                  Security Question
+                </h1>
+                <div className="flex flex-col w-full md:w-1/2">
+                  <label>What is your School name ?</label>
+                  <input
+                    {...formik.getFieldProps("securityQ")}
+                    name="securityQ"
+                    type="text"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.securityQ && formik.touched.securityQ ? (
+                    <div className="text-red-500">
+                      {formik.errors.securityQ}
+                    </div>
+                  ) : null}
+                </div>
+                <div className="w-full md:w-1/2"></div>
+              </div>
+
+              <div className="flex flex-col md:flex-row  gap-3 w-full justify-center items-center text-[#4D5E80]">
+                <div className="flex flex-col w-full">
+                  <label>Address</label>
+                  <input
+                    {...formik.getFieldProps("address")}
+                    name="address"
+                    type="text"
+                    placeholder="********"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.address && formik.touched.address ? (
+                    <div className="text-red-500">{formik.errors.address}</div>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="flex flex-col md:flex-row md:gap-5 gap-3 w-full justify-center items-center text-[#4D5E80] mt-5">
+                <div className="flex flex-col w-full md:w-1/4">
+                  <label>City</label>
+                  <input
+                    {...formik.getFieldProps("city")}
+                    name="city"
+                    type="text"
+                    placeholder="********"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.city && formik.touched.city ? (
+                    <div className="text-red-500">{formik.errors.city}</div>
+                  ) : null}
+                </div>
+                <div className="flex flex-col w-full md:w-1/4">
+                  <label>State</label>
+                  <input
+                    {...formik.getFieldProps("state")}
+                    name="state"
+                    type="text"
+                    placeholder="********"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.state && formik.touched.state ? (
+                    <div className="text-red-500">{formik.errors.state}</div>
+                  ) : null}
+                </div>
+                <div className="flex flex-col w-full md:w-1/4">
+                  <label>Zip code</label>
+                  <input
+                    {...formik.getFieldProps("zip")}
+                    name="zip"
+                    type="number"
+                    placeholder="********"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.zip && formik.touched.zip ? (
+                    <div className="text-red-500">{formik.errors.zip}</div>
+                  ) : null}
+                </div>
+                <div className="flex flex-col w-full md:w-1/4">
+                  <label>Country</label>
+                  <input
+                    {...formik.getFieldProps("country")}
+                    name="country"
+                    type="text"
+                    placeholder="********"
+                    className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
+                  />
+                  {formik.errors.country && formik.touched.country ? (
+                    <div className="text-red-500">{formik.errors.country}</div>
+                  ) : null}
+                </div>
+              </div>
+
+              <div className="mt-6 md:mt-10 flex flex-col">
+                <button
+                  type="submit"
+                  className="bg-[#194DFF] w-full md:w-72 lg:w-80  rounded-md px-3 py-3 text-white"
+                >
+                  Sign up
+                </button>
+                <h1 className="text-md text-[#A0ABC0] p-3">
+                  Already have an account ?{" "}
+                  <Link to="/">
+                    <span className="text-[#3361FF] text-lg">Login</span>
+                  </Link>
+                </h1>
               </div>
             </div>
-
-            <div className="flex gap-9 w-full text-[#4D5E80] mt-5">
-              <div className="flex flex-col w-1/2">
-                <label>Date of birth</label>
-                <input
-                  {...formik.getFieldProps("dob")}
-                  name="dob"
-                  type="date"
-                  placeholder="12/12/12"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.dob ? (
-                  <div className="text-red-500">{formik.errors.dob}</div>
-                ) : null}
-              </div>
-              <div className="flex flex-col w-1/2">
-                <label>Password</label>
-                <input
-                  {...formik.getFieldProps("password")}
-                  name="password"
-                  type="password"
-                  placeholder="**********"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.password ? (
-                  <div className="text-red-500">{formik.errors.password}</div>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="flex gap-9 w-full text-[#4D5E80] mt-5">
-              <div className="flex flex-col w-1/2">
-                <label>Phone Number</label>
-                <input
-                  {...formik.getFieldProps("phone")}
-                  name="phone"
-                  type="text"
-                  placeholder="+91-9876543210"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.phone ? (
-                  <div className="text-red-500">{formik.errors.phone}</div>
-                ) : null}
-              </div>
-              <div className="flex flex-col w-1/2">
-                <label>Confirm Password</label>
-                <input
-                  {...formik.getFieldProps("confirmpassword")}
-                  name="confirmpassword"
-                  type="password"
-                  placeholder="**********"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.confirmpassword ? (
-                  <div className="text-red-500">
-                    {formik.errors.confirmpassword}
-                  </div>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2 w-full text-[#4D5E80] mt-5">
-              <h1 className="text-[#26334D] text-lg font-semibold">
-                Security Question
-              </h1>
-              <div className="flex flex-col w-1/2">
-                <label>What is your School name ?</label>
-                <input
-                  {...formik.getFieldProps("securityQ")}
-                  name="securityQ"
-                  type="text"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.securityQ ? (
-                  <div className="text-red-500">{formik.errors.securityQ}</div>
-                ) : null}
-              </div>
-              <div className="w-1/2"></div>
-            </div>
-
-            <div className="w-full text-[#4D5E80] mt-5">
-              <div className="flex flex-col w-full">
-                <label>Address</label>
-                <input
-                  {...formik.getFieldProps("address")}
-                  name="address"
-                  type="text"
-                  placeholder="********"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.address ? (
-                  <div className="text-red-500">{formik.errors.address}</div>
-                ) : null}
-              </div>
-              <div className="w-1/2"></div>
-            </div>
-
-            <div className="flex gap-3 w-auto text-[#4D5E80] mt-5">
-              <div className="flex flex-col w-1/4">
-                <label>City</label>
-                <input
-                  {...formik.getFieldProps("city")}
-                  name="city"
-                  type="text"
-                  placeholder="********"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.city ? (
-                  <div className="text-red-500">{formik.errors.city}</div>
-                ) : null}
-              </div>
-              <div className="flex flex-col w-1/4">
-                <label>State</label>
-                <input
-                  {...formik.getFieldProps("state")}
-                  name="state"
-                  type="text"
-                  placeholder="********"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.state ? (
-                  <div className="text-red-500">{formik.errors.state}</div>
-                ) : null}
-              </div>
-              <div className="flex flex-col w-1/4">
-                <label>Zip code</label>
-                <input
-                  {...formik.getFieldProps("zip")}
-                  name="zip"
-                  type="number"
-                  placeholder="********"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.zip ? (
-                  <div className="text-red-500">{formik.errors.zip}</div>
-                ) : null}
-              </div>
-              <div className="flex flex-col w-1/4">
-                <label>Country</label>
-                <input
-                  {...formik.getFieldProps("country")}
-                  name="country"
-                  type="text"
-                  placeholder="********"
-                  className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
-                />
-                {formik.errors.country ? (
-                  <div className="text-red-500">{formik.errors.country}</div>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="mt-4 md:mt-10 gap-3 flex flex-col">
-              <button className="bg-[#194DFF] w-full md:w-72 lg:w-80  rounded-md px-3 py-3 text-white">
-                Sign up
-              </button>
-              <h1 className="text-md text-[#A0ABC0]">
-                Already have an account ?{" "}
-                <Link to="/">
-                  <span className="text-[#3361FF] text-lg">Login</span>
-                </Link>
-              </h1>
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
       <ToastContainer />
     </div>
   );
 };
-
 export default Signin;
