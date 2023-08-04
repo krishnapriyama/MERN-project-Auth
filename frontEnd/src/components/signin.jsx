@@ -56,7 +56,7 @@ const Signin = () => {
         )
       ) {
         error.password =
-          "Password must contain at least 8 characters, including at least 1 digit, 1 lowercase letter, 1 uppercase letter, and 1 special character";
+          "Aleast 8 characters, including at least 1 digit, 1 lowercase letter, 1 uppercase letter, and 1 special character";
       } else if (values.password !== values.confirmpassword) {
         error.confirmpassword = "Password Mismatch";
       }
@@ -110,29 +110,28 @@ const Signin = () => {
       return error;
     },
     onSubmit: async (values) => {
-      console.log(values);
-      // try {
-      //   const response = await axios.post("http://localhost:4000/register", {
-      //     ...values,
-      //   });
+      try {
+        const response = await axios.post("http://localhost:4000/register", {
+          ...values,
+        });
 
-      //   if (!response.data.created) {
-      //     console.log(response.data.created, "Created False");
-      //     if (response.data.errors) {
-      //       const { email, password } = response.data.errors;
-      //       if (email) {
-      //         generateError(email);
-      //       } else if (password) {
-      //         generateError(password);
-      //       }
-      //     }
-      //   } else {
-      //     console.log(response.data.created, "Created True");
-      //     navigateto("/login");
-      //   }
-      // } catch (error) {
-      //   console.log(error, "Error from Axios");
-      // }
+        if (!response.data.created) {
+          console.log(response.data.created, "Created False");
+          if (response.data.errors) {
+            const { email, password } = response.data.errors;
+            if (email) {
+              generateError(email);
+            } else if (password) {
+              generateError(password);
+            }
+          }
+        } else {
+          console.log(response.data.created, "Created True");
+          navigateto("/");
+        }
+      } catch (error) {
+        console.log(error, "Error from Axios");
+      }
     },
   });
 
@@ -288,14 +287,14 @@ const Signin = () => {
               <div className="flex flex-col w-1/4">
                 <label>City</label>
                 <input
-                  {...formik.getFieldProps("address")}
-                  name="address"
+                  {...formik.getFieldProps("city")}
+                  name="city"
                   type="text"
                   placeholder="********"
                   className="px-4 py-2 border rounded-md placeholder-[#C3CBDE] outline-none"
                 />
-                {formik.errors.address ? (
-                  <div className="text-red-500">{formik.errors.address}</div>
+                {formik.errors.city ? (
+                  <div className="text-red-500">{formik.errors.city}</div>
                 ) : null}
               </div>
               <div className="flex flex-col w-1/4">
